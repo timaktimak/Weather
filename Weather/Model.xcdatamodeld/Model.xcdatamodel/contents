@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15D21" minimumToolsVersion="Xcode 7.0">
+    <entity name="RegionCurrentData" representedClassName="RegionCurrentData" syncable="YES">
+        <attribute name="dateOfFetch" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="region" attributeType="String" syncable="YES"/>
+        <relationship name="data" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="WeatherData" syncable="YES"/>
+    </entity>
+    <entity name="RegionForecastData" representedClassName="RegionForecastData" syncable="YES">
+        <attribute name="dateOfFetch" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="region" attributeType="String" syncable="YES"/>
+        <relationship name="data" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="WeatherData" syncable="YES"/>
+    </entity>
+    <entity name="WeatherCondition" representedClassName="WeatherCondition" syncable="YES">
+        <attribute name="iconURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weatherDescription" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="WeatherData" representedClassName="WeatherData" syncable="YES">
+        <attribute name="dayTime" attributeType="String" syncable="YES"/>
+        <attribute name="temp" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="conditions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="WeatherCondition" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="RegionCurrentData" positionX="-450" positionY="-81" width="128" height="90"/>
+        <element name="RegionForecastData" positionX="-207" positionY="-81" width="128" height="90"/>
+        <element name="WeatherCondition" positionX="-92" positionY="87" width="128" height="75"/>
+        <element name="WeatherData" positionX="-270" positionY="135" width="128" height="90"/>
+    </elements>
+</model>
